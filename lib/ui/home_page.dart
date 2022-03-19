@@ -49,7 +49,8 @@ class _HomePageState extends State<HomePage> {
                   title: Text(users[index].fullName),
                   subtitle: Text(users[index].email),
                 );
-              }),
+              },
+            ),
     );
   }
 }

@@ -20,7 +20,7 @@ class User {
     data['id'] = this.id ?? "0";
     data['email'] = this.email;
     data['password'] = this.password;
-    data['fullName'] = this.fullName;
+    data['fullName'] = this.fullName ?? "";
     return data;
   }
 
