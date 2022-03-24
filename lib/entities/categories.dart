@@ -14,7 +14,7 @@ class Categories {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id ?? "0";
-    data['fullName'] = this.Name ?? "";
+    data['Name'] = this.Name ?? "";
     return data;
   }
 

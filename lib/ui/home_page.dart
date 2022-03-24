@@ -4,7 +4,8 @@ import 'package:mst_app/services/user_services.dart';
 import 'package:mst_app/ui/user/user_add.dart';
 import 'package:mst_app/entities/categories.dart';
 import 'package:mst_app/services/categories_services.dart';
-import 'package:mst_app/ui/categories/categoies_add.dart';
+import 'package:mst_app/ui/categories/categories_add.dart';
+
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
 
