@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:mst_app/ui/auth/login.dart';
-import 'package:mst_app/ui/home_page.dart';
+
+import 'drawer.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  static final DrawerMenu _drawer = DrawerMenu();
+  static DrawerMenu getDrawerState() {
+    return _drawer;
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Login(),
+      home: _drawer,
     );
   }
 }

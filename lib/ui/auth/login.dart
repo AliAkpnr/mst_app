@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
+import 'package:mst_app/main.dart';
 import 'package:mst_app/models/login_model.dart';
+import 'package:mst_app/models/page_model.dart';
 import 'package:mst_app/models/register_model.dart';
 import 'package:mst_app/services/auth_services.dart';
 import 'package:mst_app/ui/home_page.dart';
+
+import '../../drawer.dart';
 
 class Login extends StatefulWidget {
   Login({Key key}) : super(key: key);
@@ -16,12 +20,10 @@ class _LoginState extends State<Login> {
   TextEditingController nameController = TextEditingController();
   bool ctrl = false;
   LoginData registerData;
+  DrawerMenu _drawer = MyApp.getDrawerState();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: ctrl ? nameScreen() : loginScreen(),
-    );
+    return ctrl ? nameScreen() : loginScreen();
   }
 
   loginScreen() {
@@ -68,12 +70,15 @@ class _LoginState extends State<Login> {
     var response = await AuthService.login(loginModel);
     if (response != null) {
       print(response.toJson());
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (BuildContext context) => HomePage(),
-        ),
-      );
+      _drawer.drawerMenuState.onSelectItem(PageModel(HomePage(), "Anasayfa"));
+      // Navigator.push(
+      //   context,
+      //   MaterialPageRoute(
+      //     builder: (BuildContext context) => HomePage(),
+      //   ),
+      // );
+    } else {
+      // kullanici bulunamazsa sayfayı yeniden yükle yada sadece uyarı ver
     }
     return null;
   }
